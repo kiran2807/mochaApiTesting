@@ -31,6 +31,18 @@ describe("API Crud operations SERVER API testing", function() {
                 done();
             });
         });
+
+        //GET WITH ID OPERATION API TESTING
+        it("Check for status 200 and successful Test Read Operation with ID", function(done) {
+            const id = '1';
+            var url = "http://localhost:3000/tryreadOperationWithID/"+id;
+            request({url: url, method: "GET", json: true}, 
+            (error, response, body) => {
+                expect(response.statusCode).to.equal(200);
+                // expect(response.body.message).to.equal("Vyanktesh");
+                done();
+            });
+        });
         
     });
 });

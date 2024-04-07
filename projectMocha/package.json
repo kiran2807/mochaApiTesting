@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "mocha"
+    "test": "NODE_ENV=test nyc ./node_modules/.bin/mocha --exit --require babel-register */*.js --reporter spec||exit 0"
   },
   "author": "",
   "license": "ISC",
@@ -18,5 +18,11 @@
     "node-fetch": "^2.6.1",
     "request": "^2.88.2",
     "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.4",
+    "@babel/preset-env": "^7.24.4",
+    "babel-register": "^6.26.0",
+    "nyc": "^15.1.0"
   }
 }

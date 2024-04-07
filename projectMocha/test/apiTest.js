@@ -13,5 +13,22 @@ describe("API Crud operations UNIT testing", function() {
                 expect(result).to.equal('Vyanktesh');
             });
         });
+        it("Gets from DB using Invalid ID and gets Error message", function() {
+            crudController.readOperationWithID('5', function(result) {
+                expect(result).to.equal('err');
+            });
+        });
+        it("Gets from DB using using Try Read with ID and Succesful", function() {
+            crudController.tryreadOperationWithID('1', function(result) {
+                expect(result[0]).to.equal('1');
+                expect(result[1]).to.equal('Vyanktesh');
+                expect(result[2]).to.equal('Chinmay');
+            });
+        });
+        it("Gets from DB using using Try Read with ID and ERROR", function() {
+            crudController.tryreadOperationWithID('5', function(result) {
+                expect(result).to.equal('err');
+            });
+        });
     });
 });

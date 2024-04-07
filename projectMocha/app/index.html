@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Button Click</title>
+    <style>
+
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f0f0f0;
+          min-height: 100vh;
+
+          justify-content: center;
+          align-items: center;
+        }
+
+        
+  
+        .container {
+          background-color: #ffffff;
+          border-radius: 8px;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+          margin-top: 3%;
+          padding: 20px;
+          max-width: 600px;
+          width: 100%;
+          text-align: center;
+        }
+  
+        h1 {
+          color: #333333;
+          margin-bottom: 20px;
+        }
+  
+        button {
+          background-color: #4CAF50;
+          color: #ffffff;
+          border: none;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+  
+        button:hover {
+          background-color: #45a049;
+        }
+  
+        pre {
+          background-color: #f0f0f0;
+          padding: 10px;
+          border-radius: 4px;
+          text-align: left;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+          margin-top: 20px;
+        }
+      </style>
+</head>
+<body>
+  <div class="container-fluid">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Execute Terminal Command</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="test/">Enter ID</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  
+  </div>
+  
+    <div class="container">
+        <h1>Execute Terminal Command</h1>
+        <button id="executeButton">Execute Command</button>
+        <pre id="output"></pre>
+    </div>
+
+    <script>
+        const executeButton = document.getElementById('executeButton');
+        const outputDiv = document.getElementById('output');
+  
+        executeButton.addEventListener('click', () => {
+          fetch('/test-exec', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          })
+            .then(response => response.text())
+            .then(data => {
+              outputDiv.textContent = data;
+            })
+            .catch(error => {
+              console.error('Error:', error);
+              outputDiv.textContent = `Error executing command: ${error}`;
+            });
+        });
+      </script>
+  </body>
+</html>
+</body>
+</html>

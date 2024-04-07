@@ -26,11 +26,15 @@ exports.addOperation = function(id, firstName, lastName, callback) {
 exports.readOperationWithID = function(id, callback) {
     const query = 'SELECT * FROM mochaApiTest.profileCluster WHERE id = ?';
     client.execute(query, [id], { prepare: true }, (err, result) => {
-        if(err) {
-            callback('err');
-        } else {
             const user = result.first();
-            callback(user.values()[1]);
-        }
+            callback(user && user.values() && user.values()[1] || 'err');
+    });
+}
+
+exports.tryreadOperationWithID = function(id, callback) {
+    const query = 'SELECT * FROM mochaApiTest.profileCluster WHERE id = ?';
+    client.execute(query, [id], { prepare: true }, (err, result) => {
+            const user = result.first();
+            callback(user && user.values() || 'err');
     });
 }
