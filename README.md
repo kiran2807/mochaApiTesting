@@ -1,8 +1,8 @@
 <html>
     <body>
         <h1>Welcome to mochaApiTesting repository.</h1>
-<h4>This project aims to come up with a testing package in Node.js using Mocha.js in order to aid backend developers to help build API unit test cases effectively and efficiently.
-We extensively make use of express, chai and Cassandra-driver libraries alongside Node.js</h4><br>
+        <h4>This project aims to come up with a testing package in Node.js using Mocha.js in order to aid backend developers to help build API unit test cases effectively and efficiently.
+            We extensively make use of express, chai and Cassandra-driver libraries alongside Node.js</h4><br>
 
 <h3>How to setup the project?</h3>
 1. Make sure Python and JDK8 are installed to be able to run Cassandra DB.<br><br>
@@ -13,7 +13,7 @@ We extensively make use of express, chai and Cassandra-driver libraries alongsid
 6. Open a termninal to run the Node instance to open localhost.<br><br>
 7. The localhost basically opens up our automation tool. They describe the testcases executed, its passes and failures along with Code coverage report and error messages if any.<br><br>
 8. Open localhost in the browser and click on Execute Command button to start execution of our testcases by one click mechanism.<br><br>
-    
+	
 <h3>Lets have a look at some of the important files and their functions:</h3>
 <b>1. app/crudController.cjs</b><br>
 &emsp;This file contains the important functions that interact with the database using CRUD opeartions. They also have the queries needed to execute into the DB.<br><br>
